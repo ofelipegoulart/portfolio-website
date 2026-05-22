@@ -1,65 +1,142 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React, { useEffect, useState } from 'react';
+import translations, { Language } from './lib/translations';
+import Header from './sections/Header';
+import Hero from './sections/Hero';
+import About from './sections/About';
+import Tech from './sections/Tech';
+import Projects from './sections/Projects';
+import Contact from './sections/Contact';
+import Footer from './sections/Footer';
+
+interface Skill {
+  name: string;
+  level: number;
+  color: string;
+}
+
+export default function App() {
+  const [lang, setLang] = useState<Language>('pt');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const t = translations[lang];
+  const typingPhrases = t.hero.titlePhrases;
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(typingPhrases[0].length);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const currentPhrase = typingPhrases[phraseIndex];
+  const displayedText = currentPhrase.slice(0, charIndex);
+
+  const [cursorVisible, setCursorVisible] = useState(true);
+
+  useEffect(() => {
+    const id = setInterval(() => setCursorVisible(v => !v), 400);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    setPhraseIndex(0);
+    setCharIndex(typingPhrases[0].length);
+    setIsDeleting(false);
+  }, [lang]);
+
+  useEffect(() => {
+    const speed = isDeleting ? 30 : charIndex === currentPhrase.length ? 2500 : 120;
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (charIndex < currentPhrase.length) {
+          setCharIndex(prev => prev + 1);
+        } else {
+          setIsDeleting(true);
+        }
+      } else {
+        if (charIndex > 0) {
+          setCharIndex(prev => prev - 1);
+        } else {
+          setIsDeleting(false);
+          setPhraseIndex(prev => (prev + 1) % typingPhrases.length);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, currentPhrase, isDeleting, typingPhrases.length]);
+
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const scrollTo = (id: string) => {
+    setMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    const header = document.getElementById('portfolio_header');
+
+    if (element) {
+      const headerOffset = header?.offsetHeight ?? 0;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset - 16;
+
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+  };
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      setSubmitStatus('error');
+      return;
+    }
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    }, 1500);
+  };
+
+  const skillsListFrontend: Skill[] = [
+    { name: 'TypeScript', level: 98, color: 'bg-blue-500' },
+    { name: 'React / Next.js', level: 95, color: 'bg-cyan-500' },
+    { name: 'Tailwind CSS', level: 92, color: 'bg-indigo-400' },
+    { name: 'UI/UX Layouts', level: 88, color: 'bg-purple-400' },
+    { name: 'Web Performance', level: 86, color: 'bg-sky-500' }
+  ];
+
+  const skillsListBackend: Skill[] = [
+    { name: 'Java / Spring Boot', level: 94, color: 'bg-green-600' },
+    { name: 'JWT / OAuth Security', level: 92, color: 'bg-red-500' },
+    { name: 'REST APIs', level: 90, color: 'bg-orange-500' },
+    { name: 'Node.js', level: 86, color: 'bg-cyan-500' },
+    { name: 'MySQL / PostgreSQL', level: 88, color: 'bg-blue-600' }
+  ];
+
+  const skillsListTools: Skill[] = [
+    { name: 'Git / GitHub Versioning', level: 96, color: 'bg-slate-700' },
+    { name: 'Docker & Containerization', level: 88, color: 'bg-blue-400' },
+    { name: 'Performance Build', level: 90, color: 'bg-yellow-500' },
+    { name: 'CI / Deployment Workflows', level: 84, color: 'bg-fuchsia-500' }
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div id="app_root" className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans antialiased selection:bg-blue-500/20 relative overflow-hidden">
+
+      <Header t={t} lang={lang} setLang={setLang} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} scrollTo={scrollTo} />
+
+      <main className="w-full max-w-7xl mx-auto px-4 md:px-12 py-10 relative z-10 flex flex-col space-y-24 md:space-y-36">
+        <Hero t={t} displayedText={displayedText} cursorVisible={cursorVisible} scrollTo={scrollTo} />
       </main>
+      <main className="w-full mx-auto" >
+        <About t={t} />
+        <Tech t={t} frontend={skillsListFrontend} backend={skillsListBackend} tools={skillsListTools} />
+        <Projects t={t} />
+      </main>
+      <main className='w-full max-w-7xl mx-auto px-4 md:px-12 py-10 relative z-10 flex flex-col space-y-24 md:space-y-36'>
+        <Contact t={t} formData={formData} setFormData={setFormData} isSubmitting={isSubmitting} submitStatus={submitStatus} handleContactSubmit={handleContactSubmit} />
+      </main>
+
+      <Footer t={t} scrollTo={scrollTo} />
     </div>
   );
 }
