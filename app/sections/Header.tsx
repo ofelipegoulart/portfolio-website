@@ -18,7 +18,7 @@ export default function Header({ t, lang, setLang, mobileMenuOpen, setMobileMenu
     <header id="portfolio_header" className="sticky top-0 w-full h-16 bg-white/70 backdrop-blur-md border-b border-gray-200/40 flex items-center px-4 md:px-12 z-50">
       <div className="w-full max-w-7xl mx-auto flex justify-between items-center">
         <div id="brand_logo" className="text-[#1d1d1f]" style={{ color: '#1d1d1f' }}>
-          <Brand useSvg={true} variant='forest' onClick={() => scrollTo('hero_section')} />
+          <Brand />
         </div>
 
         <nav id="desktop_navbar" className="hidden md:flex items-center space-x-8 text-sm font-medium">
@@ -59,7 +59,7 @@ export default function Header({ t, lang, setLang, mobileMenuOpen, setMobileMenu
       </div>
 
       {mobileMenuOpen && (
-        <div id="mobile_navbar" className="md:hidden fixed top-16 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-200/80 p-6 z-40 flex flex-col space-y-4 text-center lg:text-left shadow-xl transition-all duration-300">
+        <div id="mobile_navbar" className="md:hidden fixed top-16 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-200/80 p-6 z-40 flex flex-col space-y-4 shadow-xl transition-all duration-300">
           <button onClick={() => scrollTo('hero_section')} className={classNameNavItems}>{t.nav.home}</button>
           <button onClick={() => scrollTo('about_section')} className={classNameNavItems}>{t.nav.about}</button>
           <button onClick={() => scrollTo('tech_section')} className={classNameNavItems}>{t.nav.tech}</button>
