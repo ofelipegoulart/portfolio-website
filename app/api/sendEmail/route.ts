@@ -1,5 +1,7 @@
-import nodemailer from 'nodemailer';
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 type RateEntry = {
   count: number;
@@ -17,14 +19,10 @@ const rateMap = new Map<string, RateEntry>();
 
 function getClientIp(req: NextRequest) {
   const forwardedFor = req.headers.get('x-forwarded-for');
-  if (forwardedFor) {
-    return forwardedFor.split(',')[0].trim();
-  }
+  if (forwardedFor) return forwardedFor.split(',')[0].trim();
 
   const realIp = req.headers.get('x-real-ip');
-  if (realIp) {
-    return realIp.trim();
-  }
+  if (realIp) return realIp.trim();
 
   return 'unknown';
 }
@@ -143,19 +141,11 @@ export async function POST(req: NextRequest) {
       ? safeSource
       : 'unknown-source';
 
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    const subject = `[${finalSource}] Nova mensagem de ${safeName}`;
 
-    const subject = `[${finalSource}] ${safeName}`;
-
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
+    const { error } = await resend.emails.send({
+      from: 'Contato Site <onboarding@resend.dev>',
+      to: ['ofelipegoulart@gmail.com'],
       replyTo: safeEmail,
       subject,
       text: `
@@ -169,6 +159,15 @@ Mensagem:
 ${safeMessage}
       `,
     });
+
+    if (error) {
+      console.error(error);
+
+      return NextResponse.json(
+        { message: 'Failed to send mail' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       { message: 'Email sent successfully' },
