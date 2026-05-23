@@ -28,8 +28,8 @@ export const translations = {
                 "da engenharia."
             ],
             desc: "Especialista em construir ecossistemas digitais elegantes e escaláveis com React, Node.js e as melhores práticas de UI/UX minimalista.",
-            ctaPrimary: "Vamos conversar",
-            ctaSecondary: "Ver projetos",
+            ctaPrimary: "Fale sobre seu projeto",
+            ctaSecondary: "Explorar projetos",
             greetings: ["Olá, eu sou", "Felipe Goulart"]
         },
         me: {
@@ -147,8 +147,8 @@ export const translations = {
                 "engineering."
             ],
             desc: "Specialist in building elegant and scalable digital ecosystems with React, Node.js, and minimalist UI/UX practices.",
-            ctaPrimary: "Let's talk",
-            ctaSecondary: "View work",
+            ctaPrimary: "Talk about your project",
+            ctaSecondary: "View projects",
             greetings: ["Hello, I am", "Felipe Goulart"]
         },
         about: {

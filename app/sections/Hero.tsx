@@ -44,7 +44,6 @@ export default function Hero({ t, displayedText, cursorVisible, scrollTo }: Hero
             className="px-8 py-4 bg-[#16a34a] hover:bg-[#15803d] text-white rounded-2xl font-bold text-sm transition-all duration-300 shadow-md shadow-blue-500/10 hover:shadow-lg hover:shadow-blue-500/20 flex items-center justify-center gap-2 cursor-pointer"
           >
             {t.hero.ctaPrimary}
-            <ArrowRight size={16} />
           </button>
           <button
             id="hero_cta_secondary"
