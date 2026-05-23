@@ -89,7 +89,7 @@ export const translations = {
                     desc: "Portfólio moderno focado em engenharia de software, design minimalista e animações fluidas, destacando projetos, experiência profissional e identidade visual própria.",
                     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
                     link: "https://felipegoulart.dev/",
-                    linkCode: ""
+                    linkCode: "https://github.com/ofelipegoulart/portfolio-website"
                 },
                 {
                     title: "Clone do Orkut",
@@ -201,7 +201,7 @@ export const translations = {
                     desc: "Modern portfolio focused on software engineering, minimalist design, and fluid animations, highlighting projects, professional experience, and personal brand.",
                     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
                     link: "https://felipegoulart.dev/",
-                    linkCode: ""
+                    linkCode: "https://github.com/ofelipegoulart/portfolio-website"
                 },
                 {
                     title: "Clone do Orkut",
