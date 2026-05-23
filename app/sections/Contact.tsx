@@ -177,6 +177,12 @@ export default function Contact({ t }: any) {
                 rows={4}
                 value={formData.message}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSubmitContact(e as any);
+                  }
+                }}
                 placeholder={t.contact.placeholderMsg}
                 className="w-full px-4 py-3 bg-gray-50 border border-gray-200 focus:border-blue-500 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/5 text-sm transition-all resize-none text-slate-850"
                 required
@@ -197,11 +203,11 @@ export default function Contact({ t }: any) {
               response === 'Too many requests. Try again later.' ||
               response === 'Submission too fast' ||
               response === 'Spam detected') && (
-              <div className="p-4 bg-red-50 border border-red-100 rounded-xl flex items-center gap-2.5 text-red-800 text-sm font-medium">
-                <AlertCircle size={16} className="text-red-500 shrink-0" />
-                <span>{response}</span>
-              </div>
-            )}
+                <div className="p-4 bg-red-50 border border-red-100 rounded-xl flex items-center gap-2.5 text-red-800 text-sm font-medium">
+                  <AlertCircle size={16} className="text-red-500 shrink-0" />
+                  <span>{response}</span>
+                </div>
+              )}
 
             <button
               id="btn_contact_submit"
