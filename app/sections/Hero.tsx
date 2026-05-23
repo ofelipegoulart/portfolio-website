@@ -10,7 +10,8 @@ interface HeroProps {
 
 export default function Hero({ t, displayedText, cursorVisible, scrollTo }: HeroProps) {
   return (
-    <section id="hero_section" className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-10 min-h-screen items-start">
+    <section id="hero_section" className="grainy-bg relative grid grid-cols-1 
+    lg:grid-cols-12 gap-8 pt-10 min-h-screen items-start">
       <div className="lg:col-span-7 flex flex-col justify-center space-y-6 md:space-y-8">
         <div className="space-y-4">
           <div className="text-center lg:text-left">

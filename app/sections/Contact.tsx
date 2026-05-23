@@ -120,7 +120,7 @@ export default function Contact({ t }: any) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label htmlFor="input_name" className="text-[10px] font-bold text-gray-400 tracking-wider uppercase ml-1">
+                <label htmlFor="input_name" className="text-[10px] font-bold text-gray-600 tracking-wider uppercase ml-1">
                   {t.contact.labelName}
                 </label>
                 <input
@@ -136,7 +136,7 @@ export default function Contact({ t }: any) {
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="input_email" className="text-[10px] font-bold text-gray-400 tracking-wider uppercase ml-1">
+                <label htmlFor="input_email" className="text-[10px] font-bold text-gray-600 tracking-wider uppercase ml-1">
                   {t.contact.labelEmail}
                 </label>
                 <input
@@ -153,7 +153,7 @@ export default function Contact({ t }: any) {
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="input_phone" className="text-[10px] font-bold text-gray-400 tracking-wider uppercase ml-1">
+              <label htmlFor="input_phone" className="text-[10px] font-bold text-gray-600 tracking-wider uppercase ml-1">
                 {t.contact.labelPhone}
               </label>
               <input
@@ -168,7 +168,7 @@ export default function Contact({ t }: any) {
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="input_message" className="text-[10px] font-bold text-gray-400 tracking-wider uppercase ml-1">
+              <label htmlFor="input_message" className="text-[10px] font-bold text-gray-600 tracking-wider uppercase ml-1">
                 {t.contact.labelMsg}
               </label>
               <textarea

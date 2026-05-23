@@ -120,7 +120,7 @@ export default function App() {
   ];
 
   return (
-    <div id="app_root" className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans antialiased selection:bg-blue-500/20 relative overflow-hidden">
+    <div id="app_root" className="min-h-screen bg-[#f5f5f7] grainy-bg text-[#1d1d1f] font-sans antialiased selection:bg-blue-500/20 relative overflow-hidden">
 
       <Header t={t} lang={lang} setLang={setLang} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} scrollTo={scrollTo} />
 

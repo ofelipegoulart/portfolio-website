@@ -94,8 +94,7 @@ export const translations = {
                 {
                     title: "Clone do Orkut",
                     project: Project.OrkutClone,
-                    desc: "Uma recriação do Orkut com estética fiel aos anos 2000, com scrapbooks, comunidades com arquitetura frontend contemporânea.",
-                    tags: ["React", "Tailwind CSS", "Node.js", "PostgreSQL"],
+                    desc: "Uma recriação do Orkut com estética fiel aos anos 2000, resgatando elementos clássicos como scraps, comunidades e perfis personalizados, mas com uma arquitetura moderna e mais robusta para a web atual.", tags: ["React", "Spring Boot", "Tailwind CSS", "PostgreSQL"],
                     link: "",
                     linkCode: "https://github.com/ofelipegoulart/orkut-clone"
                 }
@@ -204,10 +203,10 @@ export const translations = {
                     linkCode: "https://github.com/ofelipegoulart/portfolio-website"
                 },
                 {
-                    title: "Clone do Orkut",
+                    title: "Orkut Clone",
                     project: Project.OrkutClone,
-                    desc: "A recreation of Orkut with an authentic early-2000s aesthetic, featuring scrapbooks and communities built with a modern frontend architecture",
-                    tags: ["React", "Tailwind CSS", "Node.js", "PostgreSQL"],
+                    desc: "A faithful recreation of Orkut that brings back the look and feel of the early 2000s, reviving classic features like scraps, communities, and personalized profiles, all built on a modern, more robust web architecture.",
+                    tags: ["React", "Spring Boot", "Tailwind CSS", "PostgreSQL"],
                     link: "",
                     linkCode: "https://github.com/ofelipegoulart/orkut-clone"
                 }
