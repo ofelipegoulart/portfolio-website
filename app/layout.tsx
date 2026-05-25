@@ -1,4 +1,4 @@
-import { JsonLd } from "./components/JsonLD";
+import { JsonLd } from "./components/JsonLd";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
