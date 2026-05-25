@@ -31,6 +31,10 @@ export default function App() {
   const [cursorVisible, setCursorVisible] = useState(true);
 
   useEffect(() => {
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  }, [lang]);
+
+  useEffect(() => {
     const id = setInterval(() => setCursorVisible(v => !v), 400);
     return () => clearInterval(id);
   }, []);
