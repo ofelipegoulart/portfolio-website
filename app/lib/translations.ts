@@ -84,18 +84,20 @@ export const translations = {
 
                 },
                 {
-                    title: "Portfólio Pessoal",
+                    title: "Site do MegaJogos",
                     project: Project.PersonalPortfolio,
-                    desc: "Portfólio moderno focado em engenharia de software, design minimalista e animações fluidas, destacando projetos, experiência profissional e identidade visual própria.",
-                    tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-                    link: "https://felipegoulart.dev/",
-                    linkCode: "https://github.com/ofelipegoulart/portfolio-website"
+                    desc: "Plataforma de jogos de cartas e tabuleiro online, reunindo clássicos como buraco, truco, dominó e pôquer, com partidas multiplayer gratuitas e sem necessidade de cadastro.",
+                    tags: ["Next.js", "React", "Spring Boot", "TypeScript"],
+                    link: "https://homolog.fontec.inf.br",
+                    linkCode: "",
+                    demoLabel: "Entre aqui",
+                    codeLabel: "Código indisponível"
                 },
                 {
-                    title: "Clone do Orkut",
+                    title: "Me Add No Orkut",
                     project: Project.OrkutClone,
                     desc: "Uma recriação do Orkut com estética fiel aos anos 2000, resgatando elementos clássicos como scraps, comunidades e perfis personalizados, mas com uma arquitetura moderna e mais robusta para a web atual.", tags: ["React", "Spring Boot", "Tailwind CSS", "PostgreSQL"],
-                    link: "",
+                    link: "https://me-add-no-orkut.felipegoulart.dev",
                     linkCode: "https://github.com/ofelipegoulart/orkut-clone"
                 }
             ]
@@ -195,19 +197,21 @@ export const translations = {
                     linkCode: "https://github.com/ofelipegoulart/vigilanciagenomica"
                 },
                 {
-                    title: "Portfólio Pessoal",
+                    title: "GameVelvet Website",
                     project: Project.PersonalPortfolio,
-                    desc: "Modern portfolio focused on software engineering, minimalist design, and fluid animations, highlighting projects, professional experience, and personal brand.",
-                    tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-                    link: "https://felipegoulart.dev/",
-                    linkCode: "https://github.com/ofelipegoulart/portfolio-website"
+                    desc: "Online card and board game platform, bringing together classics like canasta, truco, dominoes, and poker, with free multiplayer matches and no sign-up required.",
+                    tags: ["Next.js", "React", "Spring Boot", "TypeScript"],
+                    link: "https://homolog.fontec.inf.br",
+                    linkCode: "",
+                    demoLabel: "Enter here",
+                    codeLabel: "Code unavailable"
                 },
                 {
-                    title: "Orkut Clone",
+                    title: "Add Me On Orkut",
                     project: Project.OrkutClone,
                     desc: "A faithful recreation of Orkut that brings back the look and feel of the early 2000s, reviving classic features like scraps, communities, and personalized profiles, all built on a modern, more robust web architecture.",
                     tags: ["React", "Spring Boot", "Tailwind CSS", "PostgreSQL"],
-                    link: "",
+                    link: "https://me-add-no-orkut.felipegoulart.dev",
                     linkCode: "https://github.com/ofelipegoulart/orkut-clone"
                 }
             ]

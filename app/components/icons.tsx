@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiFillLinkedin, AiFillGithub, AiOutlineMail } from 'react-icons/ai';
 import { CiGlobe, CiMapPin, CiMedicalCross } from 'react-icons/ci';
-import { FaRegCircle } from 'react-icons/fa';
+import { FaRegCircle, FaGamepad } from 'react-icons/fa';
 
 type IconProps = React.SVGProps<SVGSVGElement> & { size?: number };
 
@@ -46,6 +46,10 @@ export const Medical = ({ size = 20, ...props }: IconProps) => (
 
 export const Orkut = ({ size = 20, ...props }: IconProps) => (
     <FaRegCircle />
+);
+
+export const Gamepad = (props: React.ComponentProps<typeof FaGamepad>) => (
+    <FaGamepad {...props} />
 );
 
 export const ExternalLink = ({ size = 20, ...props }: IconProps) => (
